@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <!-- <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>> -->
+    <div x-data="{
+      query: '',
+      img: '',
+
+      getImage () {
+        this.img=`https://source.unsplash.com/1600x900/?${this.query}`
+      }
+    }"
+    >
+    <form x-on:submit.prevent="getImage">
+      <input type="text">
+      <button type="submit">Search</button>
+      <!-- <span x-text="img"></span> -->
+    </form>
+    <div>
+      <img x-bind:src="img" alt="img" style="width: 460px" >
+    </div>
+    </div>
+
+</body>
+</html>
